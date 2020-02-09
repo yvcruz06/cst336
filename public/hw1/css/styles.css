@@ -1,0 +1,102 @@
+body {
+    background-color:#48D1CC;
+    color:#800080;
+}
+
+header, main, nav, footer {
+    text-align: center;
+    font-family: 'Russo One', sans-serif;
+}
+
+nav a { /* links within "nav" container */
+    padding: 15px;
+    padding-bottom: 15px;
+    font-size: 1.8em;
+    text-decoration: none; /* removes underline */
+    color: white; /* by default, links are blue */
+}
+
+h1 {
+    font-family: 'Russo One', sans-serif;
+    font-size: 4em;
+    margin-bottom: 0px;
+}
+
+#currentPage {
+    color: #800080;
+}
+
+nav a:hover { /* pseudo class */
+    border-bottom: 2px #800080 solid;
+    font-size: 2em;
+    transition: .9s; /* transition effect */
+}
+
+#r_info, #example1, ul {
+    column-count: 2;
+    height: 300px;
+}
+
+#main_info, #r_info, #v_info, #c_info {
+    text-align: left;
+    float: left;
+    font-size: 1.4em;
+}
+
+#main_info {
+    padding-left: 260px;
+}
+
+#r_info {
+    padding-left: 100px;
+}
+
+#v_info {
+    padding-left: 125px;
+}
+
+#c_info {
+    padding-left: 290px;
+}
+
+ul {
+    text-align: left;
+    color: white;
+    list-style: square;
+}
+
+#example1, #example2 {
+    color: #800080;
+}
+
+ul, #example1, #example2 {
+    padding-left: 200px;
+}
+
+#main_img2, #main_img3 {
+    float: left;
+    padding-left: 50px;
+}
+
+#comp_poster1, #comp_poster1 {
+    float: left;
+}
+
+#comp_poster1 {
+    padding-left: 250px;
+}
+
+footer {
+    clear: both;
+    font-size:1.3em;
+    color: #800080;
+}
+
+a:link {
+    color: blue;
+}
+
+a:hover {
+    color: red;
+}
+

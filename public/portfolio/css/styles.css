@@ -27,7 +27,7 @@ h1 {
 
 nav a:hover { /* pseudo class */
     border-bottom: 2px orange solid;
-    front-size: 2em;
+    font-size: 2em;
     transition: .9s; /* transition effect */
 }
 
@@ -45,7 +45,7 @@ table {
 
 td {
     padding-right: 10px;
-    front-size: 1.3em;
+    font-size: 1.3em;
 }
 
 td strong {
