@@ -30,6 +30,7 @@ nav a:hover { /* pseudo class */
     border-bottom: 2px #800080 solid;
     font-size: 2em;
     transition: .9s; /* transition effect */
+    color: white;
 }
 
 #r_info, #example1, ul {
@@ -93,7 +94,7 @@ footer {
 }
 
 a:link {
-    color: blue;
+    color: white;
 }
 
 a:hover {
