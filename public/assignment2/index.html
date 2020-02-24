@@ -3,35 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Checkout Cart</title>
+    <link href="styles.css" rel="stylesheet" type="text/css" />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
           crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
 </head>
 <body>
     <h1 class="jumbotron">Checkout Cart Items</h1>
-    
+    <br>
     <div id="milk">
         <img src="img/milk.jfif" alt="Gallon" class="items" id="gallon">
-        <span id="milk_name">Whole Milk Vitamin D Gallon</span>
-        <div id="price_m">$ <span id="milk_price">2.99</span> </div>
+        <h5><span id="milk_name">Whole Milk Vitamin D Gallon</span></h5>
+        <span id="m_price">$ 2.99/gallon</span>
         <input type="text" id="milk_amount">
-        <span id="total_milk"></span>
-        <button id="update1">Update</button>
+        <button id="update1">Update Item</button>
+        <div id="m_tot">Price: $0.00</div>
     </div>
-
+    <br>
     <div id="cereal">
         <img src="img/cereal.jfif" alt="CTC" class="items" id="ctc">
-        <span id="cereal_name">Cinnamon Toast Crunch Cereal</span>
-        <div>$ <span id="cereal_price">4.59</span> </div>
+        <h5><span id="cereal_name">Cinnamon Toast Crunch Cereal</span></h5>
+        <span id="c_price">$ 4.59/box</span>
         <input type="text" id="cereal_amount">
-        <span id="total_cereal"></span>
-        <button id="update2">Update</button>
+        <button id="update2">Update Item</button>
+        <div id="c_tot">Price: $0.00</div>
     </div>
+    <br>
+    <div id="taxes">Taxes (9%): $0.00</div>
+    <div id="total">Total: $0.00</div>
 
-    <div id="taxes">Taxes (9%): <span id="tax_tot">0</span></div>
-    <div id="total">Total: <span id="total_final">0.00</span></div>
-
+    <script type="text/javascript" src="functions.js"></script>
 </body>
 </html>
