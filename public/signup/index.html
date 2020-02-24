@@ -2,6 +2,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>AJAX: Sign Up Page</title>
+    <link rel="stylesheet" href="styles.css" type="text/css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 </head>
@@ -21,6 +22,7 @@
         <div><label>Email:</label><input type="text" name="email"></div>
         <div><label>Phone Number:</label><input type="text"  name="phoneNum"></div>
         <div><label>Zip Code:</label><input type="text" name="zip" id="zip"></div>
+            <span id="zipError"></span>
         <div><label>City:</label><span id="city"></span></div>
         <div><label>Latitude:</label><span id="latitude"></span></div>
         <div><label>Longitude:</label><span id="longitude"></span> </div>
@@ -59,13 +61,19 @@
             data: { "zip": $("#zip").val() },
             success: function(result,status) {
 
-                //alert(result.city);
-                $("#city").html(result.city);
-                $("#latitude").html(result.latitude);
-                $("#longitude").html(result.longitude);
-
+                if (result == "") {
+                    $("#zipError").html("Zip not found");
+                    $("#city").html("");
+                    $("#latitude").html("");
+                    $("#longitude").html("");
+                }
+                else {
+                    //alert(result.city);
+                    $("#city").html(result.city);
+                    $("#latitude").html(result.latitude);
+                    $("#longitude").html(result.longitude);
+                }
             }
-
         });//ajax
     });//zip
 
