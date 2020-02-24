@@ -9,7 +9,7 @@
 <body id="dummybodyid">
 <h1> Sign Up Form </h1>
 
-<form>
+<form id="signupForm" method="post" action="welcome.html">
     <fieldset>
         <legend>Sign Up</legend>
         <div><label>First Name:</label><input type="text" name="fName"></div>
@@ -34,14 +34,19 @@
         </div>
         <div><label>Select a County:</label><select id="county"></select></div>
         <div><label>Desired Username:</label><input type="text" id="username" name="username"></div>
+            <span id="usernameError"></span>
         <div><label>Password:</label><input type="password" id="password" name="password"></div>
+            <span id="passwordError"></span>
         <div><label>Type Password Again:</label><input type="password" id="passwordAgain"></div>
+            <span id="passwordAgainError"></span>
         <div><input type="submit" value="Sign up!"></div>
     </fieldset>
 </form>
 <script>
 
     var usernameAvailable = false;
+
+    displayStates();
 
     //Displaying City from API after typing a zip code
     $("#zip").on("change", function(){
@@ -67,7 +72,6 @@
     $("#state").on("change", function() {
 
         //alert($("#state").val());
-
         $.ajax({
             method: "GET",
             url: "https://itcdland.csumb.edu/~milara/ajax/countyList.php?state=ca",
@@ -80,7 +84,9 @@
                 for (let i=0; i < result.length; i++){
                     $("#county").append("<option>" + result[i].county + "</option>");
                 }
-
+                //Can also use this to go through result array
+                // result.forEach(function(i) {
+                //$("#county").append("<option>" + i.county + "</option>");
             }
         });//ajax
     }); //state
@@ -133,9 +139,29 @@
             $("#passwordAgainError").html("Password Mismatch!");
             isValid = false;
         }
+
+        if ($("#password").val().length < 6) {
+            $("#passwordError").html("Password must be 6 characters or more");
+            isValid = false;
+        }
         return isValid;
     }
 
+    function displayStates() {
+        $.ajax({
+            method: "GET",
+            url: "https://itcdland.csumb.edu/~milara/ajax/states.php",
+            dataType: "json",
+            //data: { "username":$("#username").val() },
+            success: function(result,status) {
+
+                $("#state").html("<option> Select One </option>");
+                result.forEach(function(i) {
+                    $("#state").append("<option value=" +i.usps+ ">" + i.state + "</option>");
+                })
+            }
+        });//ajax
+    }
 </script>
 
 </body>
