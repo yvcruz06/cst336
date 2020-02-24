@@ -90,7 +90,7 @@
         //alert($("#username").val());
         $.ajax({
             method: "GET",
-            url: "https://cst336.herokuapp.com/projects/api/usernamesAPI.php",
+            url: "https://cst336.herokuapp.com/projects/api/usernamesAPI.php?username=eeny",
             dataType: "json",
             data: { "username":$("#username").val() },
             success: function(result,status) {
