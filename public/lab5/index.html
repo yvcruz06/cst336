@@ -1,1 +1,34 @@
-<>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pixabay Image Search</title>
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+</head>
+<body>
+    <h1>Pixabay Image Search</h1>
+    <br>
+    <form id="search_input">
+        <div><label class="criteria">Keyword:</label><input type="text" id="search_words" name="search_words"></div>
+        <div><label class="criteria">Orientation:</label>
+             <select id="orient" name="orient">
+                <option>Select One</option>
+                <option value="vertical">Vertical</option>
+                <option value="horizontal">Horizontal</option>
+            </select>
+            <input type="submit" value="Search">
+        </div>
+    </form>
+    <br>
+    <hr>
+    <br>
+    <span id="img1"></span>
+    <span id="img2"></span>
+    <span id="img3"></span>
+    <span id="img4"></span>
+    
+    <script type="text/javascript" src="functions.js"></script>
+</body>
+</html>
