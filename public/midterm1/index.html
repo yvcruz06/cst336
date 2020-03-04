@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pixabay Image Search</title>
+    
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    
+    <!--JQUERY--->
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    
+    <!--Bootstrap files-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+    <!--AJAx-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+</head>
+<body>
+    <h1 class=jumbotron>Random Dog Gallery</h1>
+    <h6 class=jumbotron>Please enter the amount of images you want</h6>
+    <form id="search_input" method="get">
+        <div><label class="criteria">Number of Images:</label><input type="text" id="amt" name="amt"></div>
+            <input type="submit" value="Search">
+        </div>
+    </form>
+    <br>
+    <div id="images"></div>
+  
+    <script>
+    
+        var urllink = "https://dog.ceo/api/breeds/image/random/"+$("#amt").val();
+        
+        $("images").empty();
+         $("#search_input").submit(function(event){
+            var urllink = "https://dog.ceo/api/breeds/image/random/"+$("#amt").val(); 
+            $.ajax({
+                method: "GET",
+                url: urllink,
+                dataType: "json",
+                success: function(data) {
+                    data.message.forEach(function(link){
+                        var img = "<div class='img-thumbnail flex-item'><img src='" + link + "'></div>";
+                        $("#images").append(img);
+                    });
+                    
+                    
+                    // for (let i=0; i < data.message.length; i++){
+                    //     $("#images").append("<img src="+data.message[i]+">");
+                    // }
+                }
+            });
+            
+            event.preventDefault();
+});
+    </script>
+    <!-- <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
