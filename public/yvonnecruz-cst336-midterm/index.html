@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Open Library</title>
+    
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    
+    <!--JQUERY--->
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    
+    <!--Bootstrap files-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+    <!--AJAx-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+</head>
+<body>
+    <div class=container>
+    <div class=jumbotron id="query">
+        <h1>Open Library</h1>
+        <p>Please enter the ISBN of the book you'd like to retieve</p>
+        <form id="search_input" method="get">
+            <div><label id="is">ISBN:</label><input type="text" id="bibkeys" name="bibkeys">
+                <input type="submit" value="Query">
+            </div>
+        </form>
+    </div>    
+    <br>
+    <div id="result">
+    <div class="cover"></div>
+    <div class="info">
+        <ul style="list-style-type:none">
+         <li>Title:</li>
+         <li>Author:</li>
+         <li>Publisher Year:</li>
+         <li>Publisher:</li>
+         <li>ISBN:</li>
+         <li>Pages:</li>
+    </div>
+    </div>
+  
+    <script>
+    
+        $("#images").empty();
+        $("#info").empty();
+        
+        $("#search_input").submit(function(event){
+            var urllink = "https://openlibrary.org/api/books?bibkeys=ISBN:0451526538&format=json&jscmd=data"; 
+            var bib = "ISBN:"+$("#bibkeys").val();
+            $.ajax({
+                method: "GET",
+                url: urllink,
+                dataType: "json",
+                data: { "bibkeys": bib 
+                },
+                success: function(data) {
+                    //alert("yes");
+                    data.bib.cover.small.forEach(function(t){
+                        var img = "<div class='img-thumbnail flex-item'><img src='" +t+ "'></div>";
+                        $("#cover").append(img);
+                    });
+                    
+                    
+                }
+            });
+            
+            event.preventDefault();
+});
+    </script>
+</body>
+</html>
