@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unsplash Picture Search</title>
+    
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    
+    <!--JQUERY--->
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    
+    <!--Bootstrap files-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        
+    <!--AJAx-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+</head>
+<body>
+    <h1 class=jumbotron>Unsplash Image Search</h1>
+    <h6 class=jumbotron>Search images bellow using the Unsplash API</h6>
+    <form id="search_input" method="get">
+        <div><label class="criteria">Search Keyword:</label><input type="text" id="kw" name="kw"></div>
+            <input type="submit" value="Search">
+        </div>
+    </form>
+    <br>
+    <div id="images"></div>
+  
+    <script>
+    
+        
+        $("images").empty();
+        $("#search_input").submit(function(event){
+            var urllink = "https://api.unsplash.com/search/photos?query=wanderlust";
+            $.ajax({
+                method: "GET",
+                url: urllink,
+                //dataType: "json",
+                data: { "query"   : $("#kw").val()
+		              },
+                success: function(data) {
+                    alert("success");
+                    data.results.urls.small.forEach(function(link){
+                        var img = "<div class='img-thumbnail flex-item'><img src='" + link + "'></div>";
+                        $("#images").append(img);
+                    });
+                }
+            });
+            
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>
