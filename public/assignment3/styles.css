@@ -6,3 +6,30 @@
     background-color: black !important;
     color: rgb(202, 2, 247) !important;
 }
+
+h1 {
+    background-image: linear-gradient(to bottom right, black, purple);
+}
+
+#images {
+    align-items: center;
+    border-radius: 8px;
+    opacity: 0.5;
+    background-image: linear-gradient(black,purple);
+}
+
+#images:hover {
+    opacity: 1;
+}
+
+.img-thumbnail {
+    margin: auto;
+    display: flex;
+}
+
+.likebox {
+    margin: auto;
+
+}
+
+

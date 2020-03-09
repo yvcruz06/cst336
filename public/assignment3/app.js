@@ -1,4 +1,5 @@
 $("#search_input").submit(function(event){
+            
             $("#images").empty();
             
             var query = $("#kw").val()
@@ -15,7 +16,7 @@ $("#search_input").submit(function(event){
                     console.log(data.results);
                     //console.log(data.results[0].urls.full);
                     data.results.forEach(function(link){
-                        var img = "<div class='img-thumbnail flex-item'><img src='" + link.urls.small + "'></div>";
+                        var img = "<div class='img-thumbnail'><img src='" + link.urls.small + "'></div>";
                         var like = "<span class='likebox'>Likes: "+link.likes+"</span>";
                         $("#images").append(img).append(like);
                     });
@@ -24,5 +25,7 @@ $("#search_input").submit(function(event){
                     alert("error");
                 }
             });
+            
+            
         event.preventDefault();
         });
