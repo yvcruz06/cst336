@@ -19,38 +19,16 @@
 </head>
 <body>
     <h1 class=jumbotron>Unsplash Image Search</h1>
-    <h6 class=jumbotron>Search images bellow using the Unsplash API</h6>
+    <p class=lead>Search images bellow using the Unsplash API!</p>
     <form id="search_input" method="get">
-        <div><label class="criteria">Search Keyword:</label><input type="text" id="kw" name="kw"></div>
-            <input type="submit" value="Search">
+        <div class="jumbotron"><label>Search Keyword: </label><input type="text" id="kw" name="kw">
+            <input class="btn btn-primary btn-lg" type="submit" value="Search">
         </div>
     </form>
     <br>
     <div id="images"></div>
+    <div id="description"></div>
   
-    <script>
-    
-        
-        $("images").empty();
-        $("#search_input").submit(function(event){
-            var urllink = "https://api.unsplash.com/search/photos?query=wanderlust";
-            $.ajax({
-                method: "GET",
-                url: urllink,
-                //dataType: "json",
-                data: { "query"   : $("#kw").val()
-		              },
-                success: function(data) {
-                    alert("success");
-                    data.results.urls.small.forEach(function(link){
-                        var img = "<div class='img-thumbnail flex-item'><img src='" + link + "'></div>";
-                        $("#images").append(img);
-                    });
-                }
-            });
-            
-            event.preventDefault();
-        });
-    </script>
+    <script type="text/javascript" src="app.js"></script>
 </body>
 </html>

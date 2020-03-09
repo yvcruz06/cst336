@@ -40,6 +40,7 @@
                 url: urllink,
                 dataType: "json",
                 success: function(data) {
+                    console.log(data.results);
                     data.message.forEach(function(link){
                         var img = "<div class='img-thumbnail flex-item'><img src='" + link + "'></div>";
                         $("#images").append(img);

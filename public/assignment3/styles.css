@@ -1,0 +1,8 @@
+.jumbotron, .lead {
+     text-align: center;   
+}
+
+.jumbotron, body {
+    background-color: black !important;
+    color: rgb(202, 2, 247) !important;
+}
