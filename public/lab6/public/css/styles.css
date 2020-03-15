@@ -1,0 +1,36 @@
+body {
+    background-color: #CBE2F6;
+    text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: black;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #CBE2F6;
+  text-align: center;
+  padding: 10px 30px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #CBE2F6;
+  color: black;
+}
+
+h3 {
+  padding-left: 250px;
+  padding-right: 250px;
+  text-align: left
+}
+
