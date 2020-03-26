@@ -1,0 +1,20 @@
+<%- include('templates/header.ejs'); -%>
+
+<div class='container'>
+    <div class='jumbotron'>
+        <h1> SEARCH RESULTS </h1>
+        <button class='btn btn-info' onclick='location.href="/";'>Search Again</button>
+    </div>
+
+    <ul id='movies-list'>
+	        <li> 
+	            <img class='poster' src='<%=cover%>'>
+	            <div>
+                    <h5><%=title%></h5>
+                    <p><%=pages%></p>
+                </div>
+	        </li>	
+    <ul>
+</div>
+
+<%- include('templates/footer.ejs'); -%>
